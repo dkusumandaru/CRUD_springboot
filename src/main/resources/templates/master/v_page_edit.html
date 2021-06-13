@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:insert="fragments/header.html :: head">
+    </head>
+
+    <body>
+        <div class="container">
+            <form th:action="@{/master/update}" th:object="${masterEdit}" method="POST">
+              </br>
+              <div class="col-md-12">
+                  <h1>
+                      EDIT MASTER                                   
+                  </h1>
+                    <span class="pull-right" right>
+                          <a th:href="@{/master/}" class="btn btn-warning">Back to MASTER</a>
+                          <button class="btn btn-success" type="submit"><span class="fas fa-save"></span> Save</button>
+                      </span>   
+                </div>        
+              </br>
+              
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Id</label>
+                  <input type="text" th:field="${masterEdit.id}"  class="form-control" placeholder="">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Name</label>
+                  <input type="text" th:field="${masterEdit.name}"  class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Status</label>
+                  <input type="text" th:field="${masterEdit.deleted}" class="form-control">
+                </div>
+            </form>
+
+        </div>
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>

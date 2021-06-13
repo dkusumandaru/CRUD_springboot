@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:insert="fragments/header.html :: head">
+    </head>
+
+    <body>
+        <div class="container">
+            </br>
+                <h1>
+                    MASTER TABLE 
+                    <span class="pull-right" right>
+                        <a th:href="@{/master/add}" class="btn btn-success">Add master</a>
+                    </span>                
+                </h1>            
+            </br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="master, status : ${masters}">
+                        <td th:text="${status.index+1}"></td>
+                        <!-- <td th:text="${master.Id}"></td> -->
+                        <td th:text="${master.Name}"></td>
+                        <td>
+                            <a th:href="@{/master/edit/}+${master.Id}" class="btn btn-primary">Edit</a> 
+                            <a th:href="@{/master/remove/}+${master.Id}" class="btn btn-danger">Delete</a>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>
+
